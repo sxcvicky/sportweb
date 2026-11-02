@@ -1,5 +1,5 @@
 import { config } from "../config.js";
-import { getDb } from "../db.js";
+import { getDb, withTransaction } from "../db.js";
 import type { DiagnosisRow, Stage, UserRow } from "../types.js";
 import { dayKey, localDate, normalizeStage, nowIso, parseJson, randomId } from "../lib/util.js";
 
@@ -60,7 +60,7 @@ export function createDiagnosis(params: {
     throw error;
   }
 
-  const insert = db.transaction(() => {
+  return withTransaction(() => {
     const id = "d" + randomId(18);
     const publicId = nextPublicId();
     const token = randomId(24);
@@ -72,8 +72,6 @@ export function createDiagnosis(params: {
     ).run(id, publicId, params.user.id, stage, answersJson, token, params.source ?? null, now, now);
     return db.prepare("SELECT * FROM diagnoses WHERE id = ?").get(id) as DiagnosisRow;
   });
-
-  return insert();
 }
 
 export function getByToken(token: string): DiagnosisRow | undefined {
@@ -156,7 +154,7 @@ export function bindWecom(state: string, externalUserId: string): DiagnosisRow |
   if (!row) return undefined;
   const db = getDb();
   const now = nowIso();
-  db.transaction(() => {
+  withTransaction(() => {
     db.prepare(
       "UPDATE diagnoses SET wecom_status = 'bound', wecom_external_userid = ?, updated_at = ? WHERE id = ?"
     ).run(externalUserId, now, row.id);
@@ -164,7 +162,7 @@ export function bindWecom(state: string, externalUserId: string): DiagnosisRow |
       externalUserId,
       row.user_id
     );
-  })();
+  });
   return getById(row.id);
 }
 
@@ -188,7 +186,7 @@ export function enqueueReport(row: DiagnosisRow): void {
     (error as any).statusCode = 429;
     throw error;
   }
-  db.transaction(() => {
+  withTransaction(() => {
     db.prepare(
       `INSERT INTO report_jobs
         (diagnosis_id, status, attempts, run_after, locked_at, last_error, created_at, updated_at)
@@ -204,13 +202,13 @@ export function enqueueReport(row: DiagnosisRow): void {
     db.prepare(
       "UPDATE diagnoses SET status = 'generating', report_started_at = COALESCE(report_started_at, ?), report_ready_at = NULL, updated_at = ? WHERE id = ? AND status != 'ready'"
     ).run(now, now, row.id);
-  })();
+  });
 }
 
 export function adminRetryReport(row: DiagnosisRow): void {
   const db = getDb();
   const now = nowIso();
-  db.transaction(() => {
+  withTransaction(() => {
     const existing = db.prepare("SELECT * FROM report_jobs WHERE diagnosis_id = ?").get(row.id);
     if (existing) {
       db.prepare(
@@ -226,7 +224,7 @@ export function adminRetryReport(row: DiagnosisRow): void {
     db.prepare(
       "UPDATE diagnoses SET status = 'generating', report_started_at = ?, report_ready_at = NULL, updated_at = ? WHERE id = ?"
     ).run(now, now, row.id);
-  })();
+  });
 }
 
 export function markFailed(diagnosisId: string, message: string): void {

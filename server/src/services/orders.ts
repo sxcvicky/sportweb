@@ -1,6 +1,6 @@
 import QRCode from "qrcode";
 import { config } from "../config.js";
-import { getDb } from "../db.js";
+import { getDb, withTransaction } from "../db.js";
 import type { DiagnosisRow, OrderRow, UserRow } from "../types.js";
 import { nowIso, randomId } from "../lib/util.js";
 import { createNativeOrder } from "../integrations/wechatpay.js";
@@ -81,13 +81,13 @@ export async function getOrCreateOrder(row: DiagnosisRow, user: UserRow): Promis
 export function markOrderPaid(orderId: string, rawCallback: unknown): OrderRow | undefined {
   const db = getDb();
   const now = nowIso();
-  db.transaction(() => {
+  withTransaction(() => {
     db.prepare(
       `UPDATE orders
        SET status = 'paid', paid_at = COALESCE(paid_at, ?), raw_callback_json = ?, updated_at = ?
        WHERE id = ? AND status != 'paid'`
     ).run(now, JSON.stringify(rawCallback ?? {}), now, orderId);
-  })();
+  });
   return getOrder(orderId);
 }
 

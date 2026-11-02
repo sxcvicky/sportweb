@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { getDb } from "./db.js";
+import { getDb, withTransaction } from "./db.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
@@ -32,7 +32,7 @@ export function migrate(): void {
   for (const file of files) {
     if (applied.has(file)) continue;
     const sql = fs.readFileSync(path.join(migrationsDir(), file), "utf8");
-    const run = db.transaction(() => {
+    const run = () => withTransaction(() => {
       db.exec(sql);
       db.prepare("INSERT INTO schema_migrations (version, applied_at) VALUES (?, ?)").run(
         file,

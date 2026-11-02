@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { config } from "../config.js";
-import { getDb } from "../db.js";
+import { getDb, withTransaction } from "../db.js";
 import type { Stage } from "../types.js";
 import { nowIso, parseJson } from "../lib/util.js";
 
@@ -84,7 +84,7 @@ export function seedKb(): void {
        updated_at = excluded.updated_at, confidence = excluded.confidence,
        tags_json = excluded.tags_json, stale = 0`
   );
-  db.transaction(() => {
+  withTransaction(() => {
     for (const doc of docs) {
       upsert.run({
         id: String(doc.id),
@@ -104,7 +104,7 @@ export function seedKb(): void {
         tags_json: JSON.stringify(doc.tags ?? [])
       });
     }
-  })();
+  });
   console.log(`[kb] seeded ${docs.length} documents`);
 }
 
