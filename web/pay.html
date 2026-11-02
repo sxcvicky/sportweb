@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4efe3">
+  <meta name="description" content="外贸出海完整诊断付款，9.9 元解锁完整版报告。">
+  <title>完整诊断付款 · 越技</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231b1a17'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%23fffdf7' font-family='serif'%3E越%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/entry.css">
+</head>
+<body class="qr-page">
+  <main class="shell qr-wrap">
+    <header class="qr-top">
+      <a class="icon-btn" href="index.html" aria-label="返回首页">←</a>
+      <div class="qr-top__title">
+        完整诊断 · 付款
+        <span>越技 · 外贸出海诊断</span>
+      </div>
+      <span class="pill pill--amber">完整版 9.9</span>
+    </header>
+
+    <section class="qr-main">
+      <p class="eyebrow">完整诊断 · 9.9 元</p>
+      <h1 class="h1">确认后，<br>付 <span data-price>9.9</span> 元。</h1>
+      <p class="lead">完整版 9.9 元，付款后立即解锁。</p>
+
+      <div class="qr-block">
+        <div class="qr-frame">
+          <img class="qr-image" id="payQrImage" alt="微信支付收款码" hidden>
+          <div class="qr-placeholder" id="payQrPlaceholder">
+            <span class="qr-placeholder__label">收款码<small>正在加载</small></span>
+            <i class="qr-placeholder__corner"></i>
+          </div>
+        </div>
+        <p class="qr-caption" id="payCaption">扫码付款 · 付款后自动解锁</p>
+        <p class="qr-amount" data-pay-amount>¥9.9</p>
+        <p class="qr-ref">诊断编号：<strong id="payRef">—</strong></p>
+      </div>
+
+      <div class="qr-steps">
+        <div class="qr-step"><span>01</span><div><strong>扫码付款</strong><br>用微信扫码完成支付。</div></div>
+        <div class="qr-step"><span>02</span><div><strong>自动解锁</strong><br>付款成功后，完整版立即解锁。</div></div>
+        <div class="qr-step"><span>03</span><div><strong>回来看</strong><br>从企微消息或“我的诊断”打开，完整版还在。</div></div>
+      </div>
+
+      <div class="qr-actions">
+        <button class="btn btn--accent btn--block" type="button" id="payActionBtn" hidden>我已付款，解锁完整版</button>
+        <p class="tiny muted center" id="payDemoNote" hidden style="margin:0;">开发环境：点这个按钮模拟付款成功</p>
+        <p class="tiny muted center" id="payStatus" style="margin:0;">正在准备付款…</p>
+        <a class="btn btn--ghost btn--block" href="my.html">我的诊断</a>
+        <a class="btn btn--ghost btn--block" href="index.html">返回首页</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/pay.js"></script>
+</body>
+</html>

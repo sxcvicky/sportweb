@@ -1,0 +1,38 @@
+name: yueji-diagnosis
+
+services:
+  app:
+    build: .
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      TZ: Asia/Shanghai
+      HOST: 0.0.0.0
+      PORT: 8787
+      DATABASE_PATH: /app/server/data/app.db
+      WEB_DIR: /app/web
+    volumes:
+      - ./server/data:/app/server/data
+      - ./server/backups:/app/server/backups
+    expose:
+      - "8787"
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2-alpine
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:-localhost}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

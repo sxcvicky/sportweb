@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+build/
+*.log
+__pycache__/
+.DS_Store
+server/data/
+server/backups/
+server/dist/
+*.db
+*.db-shm
+*.db-wal
+
+.playwright-cli/

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fffdf7">
+  <meta name="description" content="外贸出海诊断：按阶段分支问诊，免费给你一页诊断报告。">
+  <title>外贸出海诊断 · 分支问诊 · 越技</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231b1a17'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%23fffdf7' font-family='serif'%3E越%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/form.css">
+</head>
+<body class="form-page">
+  <main class="shell">
+    <header class="form-top pad">
+      <a class="icon-btn" id="backLink" href="index.html" aria-label="返回">←</a>
+      <div class="form-top__title">
+        <strong id="branchTitle">外贸出海诊断</strong>
+        <span id="branchSubtitle">按阶段问诊</span>
+      </div>
+      <span class="pill pill--ghost" id="stepLabel">1 / 3</span>
+    </header>
+    <div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
+
+    <form id="branchForm" novalidate>
+      <div id="branchSteps"></div>
+
+      <div class="form-actions">
+        <button class="btn btn--ghost" type="button" id="prevBtn" hidden>上一步</button>
+        <button class="btn btn--accent" type="button" id="nextBtn">下一步 <span>→</span></button>
+        <button class="btn btn--accent" type="submit" id="submitBtn" hidden>提交，去生成诊断报告</button>
+      </div>
+
+      <p class="form-foot">提交即表示你理解：诊断只做判断和建议，不构成收入承诺；不适合的，我们会直接说。</p>
+    </form>
+
+    <section class="success" id="successView" hidden>
+      <div class="success-top">
+        <p class="eyebrow">诊断已提交</p>
+        <span class="success-stamp">已收到</span>
+      </div>
+      <h1 class="h1">报告生成中，<br>可以退出。</h1>
+      <p class="success-id">诊断编号 <span id="leadIdText">—</span></p>
+      <p class="success__lead">已收到你的诊断信息。报告生成好会在企微通知你；也可以点下面查看状态。退出后再回来，报告还在。</p>
+      <div class="timeline">
+        <div class="timeline__item is-done">
+          <span class="timeline__time">现在</span>
+          <strong>已提交诊断信息</strong>
+          <p>信息已保存，不需要再填一遍。</p>
+        </div>
+        <div class="timeline__item is-now">
+          <span class="timeline__time">生成中</span>
+          <strong>报告生成</strong>
+          <p>可以退出；好了会在企微通知你。</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__time">之后</span>
+          <strong>回来查看</strong>
+          <p>从企微消息或“我的诊断”打开，报告还在。</p>
+        </div>
+      </div>
+      <div class="success-actions">
+        <a class="btn btn--accent btn--block" id="viewMyReport" href="report.html">查看报告状态</a>
+        <a class="btn btn--ghost btn--block" href="my.html">我的诊断</a>
+        <a class="btn btn--ghost btn--block" href="report.html?sample=1">先看诊断报告示例</a>
+        <a class="btn btn--ghost btn--block" href="index.html">返回首页</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/branch.js"></script>
+</body>
+</html>

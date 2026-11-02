@@ -1,0 +1,73 @@
+/* 隐私政策页 */
+
+.legal-page {
+  background: var(--paper-2);
+}
+
+.legal {
+  padding: 42px 24px 56px;
+}
+
+.legal .h1 {
+  margin-bottom: 8px;
+  font-size: 38px;
+}
+
+.legal__meta {
+  margin-bottom: 30px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.03em;
+}
+
+.legal section {
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+
+.legal h2 {
+  margin: 0 0 8px;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.legal p,
+.legal li {
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.legal p {
+  margin: 0 0 8px;
+}
+
+.legal ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.legal li {
+  margin-bottom: 4px;
+}
+
+.legal__note {
+  margin-top: 24px;
+  padding: 14px 16px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.legal__back {
+  display: inline-flex;
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

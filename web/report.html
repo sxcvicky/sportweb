@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4efe3">
+  <meta name="description" content="外贸出海诊断报告。诊断只做判断和建议，不构成收入承诺。">
+  <title>外贸出海诊断报告 · 越技</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231b1a17'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%23fffdf7' font-family='serif'%3E越%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/report.css">
+</head>
+<body class="report-page">
+  <main class="shell">
+    <header class="report-top pad no-print">
+      <a class="icon-btn" href="index.html" aria-label="返回首页">←</a>
+      <div class="report-top__title">
+        外贸出海诊断报告
+        <span>外贸出海诊断 · 看清问题，再给建议</span>
+      </div>
+      <button class="icon-btn" type="button" id="printBtn" title="保存为 PDF" aria-label="保存为 PDF">⎙</button>
+    </header>
+    <div class="report-wrap" id="reportRoot">
+      <div class="report-state">
+        <p class="muted">诊断报告加载中…</p>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/report.js"></script>
+</body>
+</html>

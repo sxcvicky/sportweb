@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fffdf7">
+  <meta name="description" content="开始生成外贸出海诊断报告，加企微后报告好了通知你。">
+  <title>开始生成诊断报告 · 越技</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231b1a17'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%23fffdf7' font-family='serif'%3E越%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/entry.css">
+</head>
+<body class="qr-page">
+  <main class="shell qr-wrap">
+    <header class="qr-top">
+      <a class="icon-btn" href="index.html" aria-label="返回首页">←</a>
+      <div class="qr-top__title">
+        开始生成报告
+        <span>越技 · 外贸出海诊断</span>
+      </div>
+      <span class="pill pill--green">免费</span>
+    </header>
+
+    <section class="qr-main lead-main" id="leadMain">
+      <p class="eyebrow">诊断表已填完 · 最后一步</p>
+      <h1 class="h1">开始生成<br>诊断报告。</h1>
+      <p class="lead">诊断表已收到。点下面按钮，免费生成你的增长诊断；生成中可以退出。</p>
+
+      <div class="lead-primary">
+        <button class="btn btn--accent btn--block lead-btn" type="button" id="continueBtn">开始生成报告</button>
+        <p class="tiny muted center" id="leadDemoNote" hidden style="margin:8px 0 0;">原型演示：点按钮模拟已加企微</p>
+        <p class="lead-hint" id="leadHint">生成中可以退出；报告会保存在“我的诊断”。</p>
+      </div>
+
+      <p class="qr-ref">你选的是：<strong id="leadStageLabel">—</strong> · 诊断编号：<strong id="leadIdLabel">—</strong></p>
+
+      <div class="lead-wecom" id="leadWecomCard">
+        <div class="lead-wecom__qr">
+          <div class="qr-frame">
+            <img class="qr-image" id="leadQrImage" alt="企业微信活码" hidden>
+            <div class="qr-placeholder" id="leadQrPlaceholder">
+              <span class="qr-placeholder__label">企微活码<small>上线前替换</small></span>
+              <i class="qr-placeholder__corner"></i>
+            </div>
+          </div>
+        </div>
+        <div class="lead-wecom__copy">
+          <strong>加企微，报告好了通知你</strong>
+          <p>扫码加企微；报告好了通知你，也可以回来在“我的诊断”查看。</p>
+          <p class="qr-fallback">
+            二维码打不开？微信号：<strong id="leadWechatId">yueji-service</strong>
+            <button type="button" id="copyLeadWechat">复制</button>
+          </p>
+        </div>
+      </div>
+
+      <div class="lead-links">
+        <a class="btn btn--ghost btn--block" href="my.html">我的诊断</a>
+        <a class="lead-home" href="index.html">返回首页</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/lead.js"></script>
+</body>
+</html>

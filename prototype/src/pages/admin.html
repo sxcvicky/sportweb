@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1b1a17">
+  <meta name="description" content="外贸出海诊断后台：提交、报告、统计。">
+  <title>诊断后台 · 越技</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231b1a17'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%23fffdf7' font-family='serif'%3E越%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin">
+  <div class="admin-narrow">
+    <div>
+      <h1>诊断后台</h1>
+      <p>这个后台按电脑宽屏设计，请在 1180px 以上的屏幕打开。手机端只开放给客户填诊断。</p>
+    </div>
+  </div>
+
+  <div class="admin-shell">
+    <aside class="sidebar">
+      <div class="sidebar__brand">
+        <span class="brand__mark">越</span>
+        <div>
+          <strong>越技</strong>
+          <small>外贸出海诊断</small>
+        </div>
+      </div>
+      <p class="sidebar__label">工作台</p>
+      <nav class="sidebar__nav" aria-label="后台导航">
+        <button class="nav-btn is-active" type="button" data-section="leads"><span>01</span>诊断提交</button>
+        <button class="nav-btn" type="button" data-section="reports"><span>02</span>诊断报告</button>
+        <button class="nav-btn" type="button" data-section="stats"><span>03</span>数据统计</button>
+        <button class="nav-btn" type="button" data-section="settings"><span>04</span>设置</button>
+      </nav>
+      <div class="sidebar__foot">
+        <strong>静态演示版</strong>
+        数据只存在本机浏览器，不同步云端。<br>
+        <a href="index.html" target="_blank" rel="noopener" style="color:rgba(255,253,247,.62);text-decoration:underline;text-underline-offset:3px;">打开前台 →</a>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <p class="eyebrow">外贸出海诊断</p>
+          <h1 id="pageTitle">诊断提交</h1>
+        </div>
+        <div class="topbar-actions" id="topbarActions">
+          <span class="demo-badge">演示数据 · 本机浏览器</span>
+        </div>
+      </header>
+      <div class="admin-content" id="adminContent"></div>
+    </main>
+  </div>
+
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="drawer" aria-label="详情面板" aria-hidden="true"></aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

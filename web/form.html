@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fffdf7">
+  <meta name="description" content="外贸出海诊断 12 题，约 5 分钟。填完几分钟内给 1 页诊断报告。">
+  <title>外贸出海诊断 · 12 题 · 越技</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231b1a17'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%23fffdf7' font-family='serif'%3E越%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/form.css">
+</head>
+<body class="form-page">
+  <main class="shell">
+    <header class="form-top pad">
+      <a class="icon-btn" href="index.html" aria-label="返回首页">←</a>
+      <div class="form-top__title">
+        <strong>外贸出海诊断</strong>
+        <span>12 题 · 约 5 分钟</span>
+      </div>
+      <span class="pill pill--ghost" id="stepLabel">1 / 3</span>
+    </header>
+    <div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
+
+    <form id="intakeForm" novalidate>
+      <section class="form-step" data-step="1">
+        <div class="step-intro">
+          <p class="eyebrow">第 1 步 / 共 3 步</p>
+          <h1 class="h2">先看你的产品和预算</h1>
+          <p class="muted">这些信息决定报告的起点。没有标准答案，按实际情况填。</p>
+        </div>
+
+        <div class="question" data-question="1">
+          <div class="q-head">
+            <span class="q-num">01</span>
+            <div>
+              <label class="q-label" for="product">你想卖什么？</label>
+              <p class="q-help">先选一个大类，再写具体产品。</p>
+            </div>
+          </div>
+          <div class="chip-group" data-options="categories" data-name="category" role="group" aria-label="品类"></div>
+          <input class="input" id="product" name="product" placeholder="具体产品，例如：手机支架、收纳盒、宠物牵引绳" autocomplete="off">
+          <p class="field-label field-label--inline">有样品吗？</p>
+          <div class="chip-group" data-options="samples" data-name="sample" role="group" aria-label="是否有样品"></div>
+          <p class="error" data-error="category"></p>
+        </div>
+
+        <div class="question" data-question="2">
+          <div class="q-head">
+            <span class="q-num">02</span>
+            <div>
+              <span class="q-label">货从哪来？</span>
+              <p class="q-help">没有工厂也可以，按实际情况选。</p>
+            </div>
+          </div>
+          <div class="chip-group" data-options="sources" data-name="source" role="group" aria-label="货源"></div>
+          <p class="error" data-error="source"></p>
+        </div>
+
+        <div class="question" data-question="3">
+          <div class="q-head">
+            <span class="q-num">03</span>
+            <div>
+              <span class="q-label">启动预算大概多少？</span>
+              <p class="q-help">算上首批货、物流、广告和合规。</p>
+            </div>
+          </div>
+          <div class="chip-group" data-options="budgets" data-name="budget" role="group" aria-label="预算"></div>
+          <p class="error" data-error="budget"></p>
+        </div>
+
+        <div class="question" data-question="4">
+          <div class="q-head">
+            <span class="q-num">04</span>
+            <div>
+              <span class="q-label">你想做哪个市场？</span>
+              <p class="q-help">没想好也没关系，选“还没定”。</p>
+            </div>
+          </div>
+          <div class="chip-group" data-options="markets" data-name="market" role="group" aria-label="目标市场"></div>
+          <p class="error" data-error="market"></p>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="2" hidden>
+        <div class="step-intro">
+          <p class="eyebrow">第 2 步 / 共 3 步</p>
+          <h1 class="h2">再看平台和经验</h1>
+          <p class="muted">平台没有绝对好坏，只有和你的货、预算、团队匹不匹配。</p>
+        </div>
+
+        <div class="question" data-question="5">
+          <div class="q-head">
+            <span class="q-num">05</span>
+            <div>
+              <span class="q-label">你更想做哪个平台？</span>
+              <p class="q-help">先选一个最想做的；还没定也可以。</p>
+            </div>
+          </div>
+          <div class="chip-group" data-options="platforms" data-name="platform" role="group" aria-label="平台"></div>
+          <p class="error" data-error="platform"></p>
+        </div>
+
+        <div class="question" data-question="6">
+          <div class="q-head">
+            <span class="q-num">06</span>
+            <div>
+              <span class="q-label">你以前有没有卖过货？</span>
+              <p class="q-help">国内电商、跨境、外贸都算经验。</p>
+            </div>
+          </div>
+          <div class="chip-group" data-options="experiences" data-name="experience" role="group" aria-label="卖货经验"></div>
+          <input class="input other-input" id="experienceOther" placeholder="补充你的经验，例如：做过两年天猫店" hidden>
+          <p class="error" data-error="experience"></p>
+        </div>
+
+        <div class="question" data-question="7">
+          <div class="q-head">
+            <span class="q-num">07</span>
+            <div>
+              <span class="q-label">你有没有公司、个体户或店铺？</span>
+              <p class="q-help">没有也能做，只是注册和收款路径不同。</p>
+            </div>
+          </div>
+          <div class="chip-group" data-options="entities" data-name="entity" role="group" aria-label="经营主体"></div>
+          <p class="error" data-error="entity"></p>
+        </div>
+
+        <div class="question" data-question="8">
+          <div class="q-head">
+            <span class="q-num">08</span>
+            <div>
+              <span class="q-label">你的外语水平？</span>
+              <p class="q-help">决定你适合自己回消息，还是先用工具和服务。</p>
+            </div>
+          </div>
+          <div class="chip-group" data-options="languages" data-name="language" role="group" aria-label="外语水平"></div>
+          <p class="error" data-error="language"></p>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="3" hidden>
+        <div class="step-intro">
+          <p class="eyebrow">第 3 步 / 共 3 步</p>
+          <h1 class="h2">最后看投入和预期</h1>
+          <p class="muted">这三题决定我们会不会劝你先别做。说实话就好。</p>
+        </div>
+
+        <div class="summary-card" id="summaryCard">
+          <div class="summary-card__title">
+            <span>你的诊断画像</span>
+            <span>可返回修改</span>
+          </div>
+          <div class="summary-row"><span>品类</span><strong id="sumCategory">—</strong></div>
+          <div class="summary-row"><span>预算</span><strong id="sumBudget">—</strong></div>
+          <div class="summary-row"><span>市场</span><strong id="sumMarket">—</strong></div>
+          <div class="summary-row"><span>平台</span><strong id="sumPlatform">—</strong></div>
+        </div>
+
+        <div class="question" data-question="9">
+          <div class="q-head">
+            <span class="q-num">09</span>
+            <div>
+              <span class="q-label">你每天能投入多少时间？</span>
+              <p class="q-help">按接下来 3 个月的平均时间算。</p>
+            </div>
+          </div>
+          <div class="chip-group" data-options="times" data-name="time" role="group" aria-label="每天投入时间"></div>
+          <p class="error" data-error="time"></p>
+        </div>
+
+        <div class="question" data-question="10">
+          <div class="q-head">
+            <span class="q-num">10</span>
+            <div>
+              <span class="q-label">你最担心什么？</span>
+              <p class="q-help">可多选，诊断报告会优先回答你最担心的那一项。</p>
+            </div>
+          </div>
+          <div class="chip-group" data-options="concerns" data-name="concerns" data-multi="true" role="group" aria-label="最担心的问题"></div>
+          <input class="input other-input" id="concernsOther" placeholder="还有别的担心？写一句" hidden>
+          <p class="error" data-error="concerns"></p>
+        </div>
+
+        <div class="question" data-question="11">
+          <div class="q-head">
+            <span class="q-num">11</span>
+            <div>
+              <span class="q-label">你希望多久看到结果？</span>
+              <p class="q-help">这里的结果指第一笔订单或第一个稳定询盘。</p>
+            </div>
+          </div>
+          <div class="chip-group" data-options="expected" data-name="expected" role="group" aria-label="预期时间"></div>
+          <p class="error" data-error="expected"></p>
+        </div>
+
+        <div class="question" data-question="12">
+          <div class="q-head">
+            <span class="q-num">12</span>
+            <div>
+              <span class="q-label">如果前 3 个月亏掉预算的 30%，你能接受吗？</span>
+              <p class="q-help">这是跨境试错常见的第一轮成本。不能接受，我们会直接说。</p>
+            </div>
+          </div>
+          <div class="chip-group" data-options="losses" data-name="lossTolerance" role="group" aria-label="风险承受力"></div>
+          <p class="error" data-error="lossTolerance"></p>
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="consent">
+          <span>我已阅读并同意<a href="privacy.html" target="_blank" rel="noopener">《隐私政策》</a>，允许越技使用以上信息为我出具诊断报告。</span>
+        </label>
+        <p class="error" data-error="consent"></p>
+      </section>
+
+      <div class="form-actions">
+        <button class="btn btn--ghost" type="button" id="prevBtn" hidden>上一步</button>
+        <button class="btn btn--accent" type="button" id="nextBtn">下一步 <span>→</span></button>
+        <button class="btn btn--accent" type="submit" id="submitBtn" hidden>提交，去生成诊断报告</button>
+      </div>
+
+      <p class="form-foot">提交即表示你理解：诊断只做判断和建议，不构成收入承诺；不适合的，我们会直接说。</p>
+    </form>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/form.js"></script>
+</body>
+</html>
